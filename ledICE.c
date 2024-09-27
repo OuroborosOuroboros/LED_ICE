@@ -3,10 +3,10 @@
 #include <pigpio.h>
 
 const int RedLED = 21;
-volatile sig_atomic_t signal_recieved = 0;
+volatile sig_atomic_t signal_received = 0;
 
 void sigint_handler(int signal) {
-    signal_recieved = signal;
+    signal_received = signal;
 }
 
 int main(){
@@ -19,7 +19,7 @@ int main(){
     signal (SIGINT, sigint_handler);
     printf("Press CTRL-C to exit.\n");
 
-    while(!signal_recieved) {
+    while(!signal_received) {
 	gpioWrite(RedLED, PI_HIGH);
 	time_sleep(1);
 	gpioWrite(RedLED, PI_LOW);
