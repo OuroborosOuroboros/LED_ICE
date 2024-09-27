@@ -5,7 +5,7 @@
 const int RedLED = 21;
 volatile sig_atomic_t signal_recieved = 0;
 
-void sigint_handler(int_signal) {
+void sigint_handler(int signal) {
     signal_recieved = signal;
 }
 
@@ -21,6 +21,8 @@ int main(){
 
     while(!signal_recieved) {
 	gpioWrite(RedLED, PI_HIGH);
+	time_sleep(1);
+	gpioWrite(RedLED, PI_LOW);
 	time_sleep(1);
     }
 
