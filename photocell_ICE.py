@@ -70,7 +70,8 @@ def photocellParse(reading):
 
 while True:
     GPIO.output(OUT_STATE, True)
-    sys.stdout.write(photocellParse(RCtime(IN_RC))) # Read RC timing using RC_IN pin, parse it, and spit it into stdout
+    #sys.stdout.write(photocellParse(RCtime(IN_RC))) # Read RC timing using RC_IN pin, parse it, and spit it into stdout
     #print photocellParse(RCtime(IN_RC))
+    print(RCtime(IN_RC))
     sys.stdout.flush()
     GPIO.output(OUT_STATE, False)
